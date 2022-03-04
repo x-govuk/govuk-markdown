@@ -23,7 +23,7 @@ test('Renders headings using `s` size for lower heading levels', t => {
 
 test('Renders heading, starting with `xl` size', t => {
   marked.setOptions({
-    headingsStartWith: 'xl',
+    headingsStartWith: 'xl'
   })
   const result = marked('# Heading')
   t.is(result, '<h1 class="govuk-heading-xl" id="heading">Heading</h1>')
