@@ -1,41 +1,35 @@
 {
   "name": "govuk-markdown",
-  "description": "Convert Markdown into GOV.UK Frontend-compliant HTML.",
   "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/x-govuk/govuk-markdown.git"
-  },
-  "bugs": {
-    "url": "https://github.com/x-govuk/govuk-markdown/issues"
-  },
-  "homepage": "https://github.com/x-govuk/govuk-markdown#readme",
+  "description": "Convert Markdown into GOV.UK Frontend-compliant HTML.",
   "keywords": [
     "govuk",
     "design system",
     "markdown",
     "marked"
   ],
+  "homepage": "https://github.com/x-govuk/govuk-markdown#readme",
+  "bugs": {
+    "url": "https://github.com/x-govuk/govuk-markdown/issues"
+  },
   "license": "MIT",
+  "files": [
+    "x-govuk"
+  ],
+  "main": "index.js",
+  "sass": "x-govuk/all.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x-govuk/govuk-markdown.git"
+  },
   "scripts": {
     "test": "ava",
     "test:watch": "ava --watch",
     "coverage": "c8 ava"
   },
-  "c8": {
-    "reporter": [
-      "text",
-      "lcovonly"
-    ]
+  "publishConfig": {
+    "access": "public"
   },
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "main": "index.js",
-  "sass": "x-govuk/all.scss",
-  "files": [
-    "x-govuk"
-  ],
   "dependencies": {
     "highlight.js": "^11.4.0",
     "marked": "^4.0.12"
@@ -44,7 +38,13 @@
     "ava": "^4.0.1",
     "c8": "^7.11.0"
   },
-  "publishConfig": {
-    "access": "public"
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcovonly"
+    ]
   }
 }
