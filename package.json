@@ -17,14 +17,32 @@
     "marked"
   ],
   "license": "MIT",
+  "scripts": {
+    "test": "ava",
+    "test:watch": "ava --watch",
+    "coverage": "c8 ava"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcovonly"
+    ]
+  },
   "engines": {
     "node": ">=16.0.0"
   },
   "main": "index.js",
   "sass": "x-govuk/all.scss",
+  "files": [
+    "x-govuk"
+  ],
   "dependencies": {
     "highlight.js": "^11.4.0",
     "marked": "^4.0.12"
+  },
+  "devDependencies": {
+    "ava": "^4.0.1",
+    "c8": "^7.11.0"
   },
   "publishConfig": {
     "access": "public"

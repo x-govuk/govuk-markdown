@@ -34,7 +34,11 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
   // Links
   link (href, title, text) {
-    return `<a class="govuk-link" href="${href}">${text}</a>`
+    if (title) {
+      return `<a class="govuk-link" href="${href}" title="${title}">${text}</a>`
+    } else {
+      return `<a class="govuk-link" href="${href}">${text}</a>`
+    }
   }
 
   // Lists
@@ -65,7 +69,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
   tablecell (content, { header, align }) {
     const element = header ? 'th' : 'td'
     const className = header ? 'govuk-table__header' : 'govuk-table__cell'
-    const alignClass = align ? ` govuk-!-text-align-${align}"` : ''
+    const alignClass = align ? ` govuk-!-text-align-${align}` : ''
     return `<${element} class="${className}${alignClass}">${content}</${element}>`
   }
 
