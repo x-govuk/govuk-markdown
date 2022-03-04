@@ -1,4 +1,4 @@
-# GOV.UK Markdown
+# GOV.UK Markdown · [![test](https://github.com/x-govuk/govuk-markdown/actions/workflows/test.yml/badge.svg)](https://github.com/x-govuk/govuk-markdown/actions/workflows/test.yml)
 
 Convert Markdown into [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend)-compliant HTML. It’s an extension to the [marked](https://marked.js.org) renderer and is inspired by its Ruby equivalent gem [`govuk_markdown`](https://github.com/DFE-Digital/govuk_markdown).
 
