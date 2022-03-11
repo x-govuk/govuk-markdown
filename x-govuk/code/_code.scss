@@ -16,7 +16,6 @@
 .x-govuk-code--block {
   @include govuk-responsive-margin(4, "bottom");
   line-height: 1.4;
-  max-width: 38em;
   overflow: auto;
   padding: govuk-spacing(4);
   scrollbar-color: $govuk-border-colour govuk-colour("light-grey");
