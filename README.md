@@ -57,7 +57,9 @@ Will output:
 </pre>
 ```
 
-To enable the styling you will need to add the following to your Sass file:
+### Additional styles
+
+To enable the styling for inline code, block code and checkboxes in task lists, add the following to your Sass file:
 
 ```scss
 @import "govuk-markdown/x-govuk/all";
