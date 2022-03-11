@@ -61,6 +61,11 @@ test('Renders unordered list', t => {
   t.is(result, '<ul class="govuk-list govuk-list--bullet"><li>Item</li>\n<li>Item</li>\n</ul>')
 })
 
+test('Renders task list', t => {
+  const result = marked('* [ ] Item\n* [x] Item')
+  t.is(result, '<ul class="govuk-list govuk-list--bullet"><li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" disabled><span class="x-govuk-checkbox__pseudo"></span></span>Item</li>\n<li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" checked disabled><span class="x-govuk-checkbox__pseudo"></span></span>Item</li>\n</ul>')
+})
+
 test('Renders section break', t => {
   const result = marked('***')
   t.is(result, '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">')

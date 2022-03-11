@@ -55,6 +55,11 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     return `<${element} class="govuk-list govuk-list--${modifier}">${body}</${element}>`
   }
 
+  // Checkbox
+  checkbox (checked) {
+    return `<span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox"${checked ? ' checked' : ''} disabled><span class="x-govuk-checkbox__pseudo"></span></span>`
+  }
+
   // Section break
   hr () {
     return '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">'
