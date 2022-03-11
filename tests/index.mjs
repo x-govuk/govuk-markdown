@@ -34,6 +34,13 @@ test('Renders paragraph', t => {
   t.is(result, '<p class="govuk-body">Paragraph</p>')
 })
 
+test('Doesn’t render paragraph around `figure` element', t => {
+  const figure = marked('<figure>Figure</figure>')
+  const linkedFigure = marked('<a href="#"><figure>Figure</figure></a>')
+  t.is(figure, '<figure>Figure</figure>')
+  t.is(linkedFigure, '<a href="#"><figure>Figure</figure></a>')
+})
+
 test('Renders link', t => {
   const result = marked('[Link](#)')
   t.is(result, '<p class="govuk-body"><a class="govuk-link" href="#">Link</a></p>')
