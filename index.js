@@ -29,7 +29,13 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
   // Paragraphs
   paragraph (string) {
-    return `<p class="govuk-body">${string}</p>`
+    // Don’t place figure (or figure within an anchor) within paragraph
+    const FIGURE_RE = /(<a([^>]+)>)?<figure/
+    if (FIGURE_RE.test(string)) {
+      return string
+    } else {
+      return `<p class="govuk-body">${string}</p>`
+    }
   }
 
   // Links
