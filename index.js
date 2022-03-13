@@ -97,7 +97,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
       } else {
         code = highlightJs.highlightAuto(string).value
       }
-      return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0"><code class="x-govuk-code__language--${language}">${code}</code></pre>`
+      return `<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--${language}" tabindex="0"><code>${code}</code></pre>`
     } else {
       // No language found, so render as plain text
       return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0">${string}</pre>`

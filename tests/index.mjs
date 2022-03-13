@@ -97,12 +97,12 @@ test('Renders code block with preformatted text', t => {
 
 test('Renders code block with highlighted syntax', t => {
   const result = marked('```js\nconsole.log(\'Hello, World!\')\n```')
-  t.is(result, '<pre class="x-govuk-code x-govuk-code--block" tabindex="0"><code class="x-govuk-code__language--js"><span class="x-govuk-code__variable language_">console</span>.<span class="x-govuk-code__title function_">log</span>(<span class="x-govuk-code__string">&#x27;Hello, World!&#x27;</span>)</code></pre>')
+  t.is(result, '<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--js" tabindex="0"><code><span class="x-govuk-code__variable language_">console</span>.<span class="x-govuk-code__title function_">log</span>(<span class="x-govuk-code__string">&#x27;Hello, World!&#x27;</span>)</code></pre>')
 })
 
 test('Renders code block with unknown syntax', t => {
   const result = marked('```foo\n^^^Hello, World^^^\n```')
-  t.is(result, '<pre class="x-govuk-code x-govuk-code--block" tabindex="0"><code class="x-govuk-code__language--foo">^^^Hello, World^^^</code></pre>')
+  t.is(result, '<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--foo" tabindex="0"><code>^^^Hello, World^^^</code></pre>')
 })
 
 test('Renders code span', t => {
