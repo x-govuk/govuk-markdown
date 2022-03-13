@@ -11,7 +11,7 @@ const { Renderer } = require('marked').marked
 module.exports = class GovukHTMLRenderer extends Renderer {
   // Block quotes
   blockquote (quote) {
-    return `<blockquote class="govuk-inset-text govuk-!-margin-left-0">${quote}</blockquote>`
+    return `<blockquote class="govuk-inset-text govuk-!-margin-left-0">${quote}</blockquote>\n`
   }
 
   // Headings
@@ -34,7 +34,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     if (FIGURE_RE.test(string)) {
       return string
     } else {
-      return `<p class="govuk-body">${string}</p>`
+      return `<p class="govuk-body">${string}</p>\n`
     }
   }
 
@@ -52,7 +52,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     const element = ordered ? 'ol' : 'ul'
     const modifier = ordered ? 'number' : 'bullet'
 
-    return `<${element} class="govuk-list govuk-list--${modifier}">${body}</${element}>`
+    return `<${element} class="govuk-list govuk-list--${modifier}">${body}</${element}>\n`
   }
 
   // Checkbox
@@ -62,26 +62,23 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
   // Section break
   hr () {
-    return '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">'
+    return '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">\n'
   }
 
   // Tables
   table (header, body) {
-    return `<table class="govuk-table">
-      <thead class="govuk-table__head">${header}</thead>
-      <tbody class="govuk-table__body">${body}</tbody>
-    </table>`
+    return `<table class="govuk-table">\n<thead class="govuk-table__head">\n${header}</thead>\n<tbody class="govuk-table__body">${body}</tbody>\n</table>\n`
   }
 
   tablerow (content) {
-    return `<tr class="govuk-table__row">${content}</tr>`
+    return `<tr class="govuk-table__row">\n${content}</tr>\n`
   }
 
   tablecell (content, { header, align }) {
     const element = header ? 'th' : 'td'
     const className = header ? 'govuk-table__header' : 'govuk-table__cell'
     const alignClass = align ? ` govuk-!-text-align-${align}` : ''
-    return `<${element} class="${className}${alignClass}">${content}</${element}>`
+    return `<${element} class="${className}${alignClass}">${content}</${element}>\n`
   }
 
   // Block code
@@ -97,10 +94,10 @@ module.exports = class GovukHTMLRenderer extends Renderer {
       } else {
         code = highlightJs.highlightAuto(string).value
       }
-      return `<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--${language}" tabindex="0"><code>${code}</code></pre>`
+      return `<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--${language}" tabindex="0"><code>${code}</code></pre>\n`
     } else {
       // No language found, so render as plain text
-      return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0">${string}</pre>`
+      return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0">${string}</pre>\n`
     }
   }
 
