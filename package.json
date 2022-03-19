@@ -1,11 +1,11 @@
 {
   "name": "govuk-markdown",
   "version": "0.2.1",
-  "description": "Convert Markdown into GOV.UK Frontend-compliant HTML.",
+  "description": "Convert Markdown into GOV.UK Frontend-compliant HTML",
   "keywords": [
     "govuk",
-    "design system",
     "markdown",
+    "marked-extension",
     "marked"
   ],
   "homepage": "https://github.com/x-govuk/govuk-markdown#readme",
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "dependencies": {
-    "highlight.js": "^11.4.0",
+    "highlight.js": "^11.5.0",
     "marked": "^4.0.12"
   },
   "devDependencies": {
