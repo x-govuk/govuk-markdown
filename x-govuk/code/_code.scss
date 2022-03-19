@@ -1,11 +1,21 @@
+// Use same colour for inline code as that used on GOV.UK Design System site.
+// https://github.com/alphagov/govuk-design-system/blob/main/src/stylesheets/main.scss
+$x-govuk-code-color: #d13118;
+
 .x-govuk-code {
+  @include govuk-typography-responsive(16);
   background-color: govuk-colour("light-grey");
   font-family: ui-monospace, monospace;
-  font-size: 16px;
+  -webkit-font-smoothing: auto;
 }
 
 .x-govuk-code--inline {
+  color: $x-govuk-code-color;
   padding: 2px govuk-spacing(1);
+
+  a & {
+    color: inherit;
+  }
 
   // Ensure links within inline code blocks receive focus colour
   a:focus & {
@@ -15,7 +25,7 @@
 
 .x-govuk-code--block {
   @include govuk-responsive-margin(4, "bottom");
-  line-height: 1.4;
+  @include govuk-typography-responsive(19, $override-line-height: 1.4);
   overflow: auto;
   padding: govuk-spacing(4);
   scrollbar-color: $govuk-border-colour govuk-colour("light-grey");
