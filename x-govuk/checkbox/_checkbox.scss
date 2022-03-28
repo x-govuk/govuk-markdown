@@ -34,7 +34,7 @@ $pseudo-offset: $touch-target-size - $input-offset;
   left: 0;
   width: $checkbox-size;
   height: $checkbox-size;
-  border: $govuk-border-width-form-element solid currentColor;
+  border: $govuk-border-width-form-element solid currentcolor;
   background: transparent;
   opacity: .5;
 }
