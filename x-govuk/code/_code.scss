@@ -2,14 +2,16 @@
 // https://github.com/alphagov/govuk-design-system/blob/main/src/stylesheets/main.scss
 $x-govuk-code-color: #d13118;
 
-.x-govuk-code {
-  @include govuk-typography-responsive(16);
-  background-color: govuk-colour("light-grey");
+.x-govuk-code--inline,
+.x-govuk-code--block,
+.x-govuk-code--block code {
+  @include govuk-typography-responsive(16, $override-line-height: 1.4);
   font-family: ui-monospace, monospace;
   -webkit-font-smoothing: auto;
 }
 
 .x-govuk-code--inline {
+  background-color: govuk-colour("light-grey");
   color: $x-govuk-code-color;
   padding: 2px govuk-spacing(1);
 
@@ -25,7 +27,7 @@ $x-govuk-code-color: #d13118;
 
 .x-govuk-code--block {
   @include govuk-responsive-margin(4, "bottom");
-  @include govuk-typography-responsive(19, $override-line-height: 1.4);
+  background-color: govuk-colour("light-grey");
   overflow: auto;
   padding: govuk-spacing(4);
   scrollbar-color: $govuk-border-colour govuk-colour("light-grey");
