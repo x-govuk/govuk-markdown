@@ -17,6 +17,17 @@ Node.js v16 or later.
 Import `GovukHTMLRenderer` and set it as the `renderer` in marked’s options:
 
 ```js
+const { marked } = require('marked');
+const GovukHTMLRenderer = require('govuk-markdown')
+
+marked.setOptions({
+  renderer: new GovukHTMLRenderer()
+})
+```
+
+If you are using [ES modules](https://nodejs.org/api/esm.html#introduction), import as follows:
+
+```js
 import { marked } from 'marked'
 import GovukHTMLRenderer from 'govuk-markdown'
 
