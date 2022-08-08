@@ -16,13 +16,19 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
   // Headings
   heading (text, level, string, slugger) {
-    // Headings can start with either `xl` or `l` size modifier
     const modifiers = [
-      ...(this.options.headingsStartWith === 'xl' ? ['xl'] : []),
+      'xl',
       'l',
-      'm'
+      'm',
+      's'
     ]
-    const modifier = modifiers[level - 1] || 's'
+
+    // Make modifiers relative to the starting heading level
+    const headingsStartWith = (modifiers.includes(this.options.headingsStartWith)) ? this.options.headingsStartWith : 'l'
+    const modifierStartIndex = modifiers.indexOf(headingsStartWith)
+
+    const modifier = modifiers[modifierStartIndex + level - 1] || 's'
+
     const id = slugger.slug(text)
     return `<h${level} class="govuk-heading-${modifier}" id="${id}">${text}</h${level}>`
   }
