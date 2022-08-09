@@ -102,3 +102,7 @@ Will output:
 ```html
 <h1 class="govuk-heading-xl">This is an extra large heading – smart!</h1>
 ```
+
+## Testing
+
+`npm test`
