@@ -36,7 +36,7 @@
     "marked": "^4.0.12"
   },
   "devDependencies": {
-    "ava": "^4.0.1",
+    "ava": "^5.1.0",
     "c8": "^7.11.0",
     "standard": "^17.0.0",
     "stylelint": "^14.6.1",
