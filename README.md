@@ -6,7 +6,7 @@ Don’t confuse this package with [govspeak](https://github.com/alphagov/govspea
 
 ## Requirements
 
-Node.js v16 or later.
+Node.js v18 or later.
 
 ## Installation
 
