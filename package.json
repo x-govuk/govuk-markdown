@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "highlight.js": "^11.5.0",
-    "marked": "^4.0.12"
+    "marked": "^5.0.2"
   },
   "devDependencies": {
     "ava": "^5.1.0",
