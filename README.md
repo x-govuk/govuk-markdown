@@ -2,7 +2,7 @@
 
 Convert Markdown into [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend)-compliant HTML. It’s an extension to the [marked](https://marked.js.org) renderer and is inspired by its Ruby equivalent gem [`govuk_markdown`](https://github.com/DFE-Digital/govuk_markdown).
 
-Don’t confuse this package with [govspeak](https://github.com/alphagov/govspeak), which is a Markdown dialect specifically built for the GOV.UK publishing system (www.gov.uk).
+Don’t confuse this package with [govspeak](https://github.com/alphagov/govspeak), which is a Markdown dialect specifically built for the GOV.UK publishing system.
 
 ## Requirements
 
@@ -89,18 +89,16 @@ For example:
 ```js
 marked.setOptions({
   renderer: new GovukHTMLRenderer(),
-  headerIds: false,
-  headingsStartWith: 'xl',
-  smartypants: true
+  headingsStartWith: 'xl'
 })
 
-marked('# This is an extra large heading -- smart!')
+marked('# Extra large heading')
 ```
 
 Will output:
 
 ```html
-<h1 class="govuk-heading-xl">This is an extra large heading – smart!</h1>
+<h1 class="govuk-heading-xl" id="extra-large-heading">Extra large heading</h1>
 ```
 
 ## Testing
