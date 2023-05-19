@@ -3,7 +3,9 @@ import { marked } from 'marked'
 import GovukHTMLRenderer from '../index.js'
 
 marked.setOptions({
-  renderer: new GovukHTMLRenderer()
+  renderer: new GovukHTMLRenderer(),
+  headerIds: false,
+  mangle: false
 })
 
 test('Renders blockquote', t => {
