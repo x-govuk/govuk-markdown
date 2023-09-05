@@ -109,3 +109,24 @@ test('Renders code span', t => {
   const result = marked('`code`')
   t.is(result, '<p class="govuk-body"><code class="x-govuk-code x-govuk-code--inline">code</code></p>\n')
 })
+
+test('Renders HTML using custom namespace prefix', t => {
+  marked.setOptions({
+    namespace: {
+      prefix: 'foo'
+    }
+  })
+  const result = marked('# Heading\n* List item with [link](#)')
+  t.is(result, '<h1 class="foo-heading-xl" id="heading">Heading</h1><ul class="foo-list foo-list--bullet"><li>List item with <a class="foo-link" href="#">link</a></li>\n</ul>\n')
+})
+
+test('Renders HTML using custom namespace prefix and utility', t => {
+  marked.setOptions({
+    namespace: {
+      prefix: 'bar',
+      utility: '^'
+    }
+  })
+  const result = marked('> Blockquote')
+  t.is(result, '<blockquote class="bar-inset-text bar-^-margin-left-0"><p class="bar-body">Blockquote</p>\n</blockquote>\n')
+})

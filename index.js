@@ -9,9 +9,17 @@ const { Renderer } = require('marked').marked
  * @class
  */
 module.exports = class GovukHTMLRenderer extends Renderer {
+  get prefix () {
+    return this.options?.namespace?.prefix || 'govuk'
+  }
+
+  get utility () {
+    return this.options?.namespace?.utility || '!'
+  }
+
   // Block quotes
   blockquote (quote) {
-    return `<blockquote class="govuk-inset-text govuk-!-margin-left-0">${quote}</blockquote>\n`
+    return `<blockquote class="${this.prefix}-inset-text ${this.prefix}-${this.utility}-margin-left-0">${quote}</blockquote>\n`
   }
 
   // Headings
@@ -30,7 +38,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     const modifier = modifiers[modifierStartIndex + level - 1] || 's'
 
     const id = slugger.slug(text)
-    return `<h${level} class="govuk-heading-${modifier}" id="${id}">${text}</h${level}>`
+    return `<h${level} class="${this.prefix}-heading-${modifier}" id="${id}">${text}</h${level}>`
   }
 
   // Paragraphs
@@ -40,16 +48,16 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     if (FIGURE_RE.test(string)) {
       return string
     } else {
-      return `<p class="govuk-body">${string}</p>\n`
+      return `<p class="${this.prefix}-body">${string}</p>\n`
     }
   }
 
   // Links
   link (href, title, text) {
     if (title) {
-      return `<a class="govuk-link" href="${href}" title="${title}">${text}</a>`
+      return `<a class="${this.prefix}-link" href="${href}" title="${title}">${text}</a>`
     } else {
-      return `<a class="govuk-link" href="${href}">${text}</a>`
+      return `<a class="${this.prefix}-link" href="${href}">${text}</a>`
     }
   }
 
@@ -58,7 +66,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
     const element = ordered ? 'ol' : 'ul'
     const modifier = ordered ? 'number' : 'bullet'
 
-    return `<${element} class="govuk-list govuk-list--${modifier}">${body}</${element}>\n`
+    return `<${element} class="${this.prefix}-list ${this.prefix}-list--${modifier}">${body}</${element}>\n`
   }
 
   // Checkbox
@@ -68,22 +76,22 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
   // Section break
   hr () {
-    return '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">\n'
+    return `<hr class="${this.prefix}-section-break ${this.prefix}-section-break--xl ${this.prefix}-section-break--visible">\n`
   }
 
   // Tables
   table (header, body) {
-    return `<table class="govuk-table">\n<thead class="govuk-table__head">\n${header}</thead>\n<tbody class="govuk-table__body">${body}</tbody>\n</table>\n`
+    return `<table class="${this.prefix}-table">\n<thead class="${this.prefix}-table__head">\n${header}</thead>\n<tbody class="${this.prefix}-table__body">${body}</tbody>\n</table>\n`
   }
 
   tablerow (content) {
-    return `<tr class="govuk-table__row">\n${content}</tr>\n`
+    return `<tr class="${this.prefix}-table__row">\n${content}</tr>\n`
   }
 
   tablecell (content, { header, align }) {
     const element = header ? 'th' : 'td'
-    const className = header ? 'govuk-table__header' : 'govuk-table__cell'
-    const alignClass = align ? ` govuk-!-text-align-${align}` : ''
+    const className = header ? `${this.prefix}-table__header` : `${this.prefix}-table__cell`
+    const alignClass = align ? ` ${this.prefix}-${this.utility}-text-align-${align}` : ''
     return `<${element} class="${className}${alignClass}">${content}</${element}>\n`
   }
 
