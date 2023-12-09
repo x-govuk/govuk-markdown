@@ -54,9 +54,9 @@ Will output:
 
 Block code is highlighted using [highlight.js](https://highlightjs.org). For example:
 
-```js
+````js
 marked('```js\nconsole.log(\'Hello, World!\')\n```')
-```
+````
 
 Will output:
 
@@ -80,8 +80,8 @@ To enable the styling for inline code, block code and checkboxes in task lists, 
 
 In addition to [marked’s options](https://marked.js.org/using_advanced#options), this extension accepts additional values:
 
-| Name | Type | Description |
-| - | - | - |
+| Name                | Type     | Description                                                                  |
+| ------------------- | -------- | ---------------------------------------------------------------------------- |
 | `headingsStartWith` | `string` | Heading size to use for the top-level heading (`xl` or `l`). Default is `l`. |
 
 For example:
