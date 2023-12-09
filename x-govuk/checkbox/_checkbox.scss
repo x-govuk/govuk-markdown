@@ -36,7 +36,7 @@ $pseudo-offset: $touch-target-size - $input-offset;
   height: $checkbox-size;
   border: $govuk-border-width-form-element solid currentcolor;
   background: transparent;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 // ✔ Check mark
@@ -60,5 +60,5 @@ $pseudo-offset: $touch-target-size - $input-offset;
 
 // [✔] Checked state
 .x-govuk-checkbox__input:checked + .x-govuk-checkbox__pseudo:after {
-  opacity: .5;
+  opacity: 0.5;
 }
