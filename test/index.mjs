@@ -4,9 +4,7 @@ import { marked } from 'marked'
 import GovukHTMLRenderer from '../index.js'
 
 marked.setOptions({
-  renderer: new GovukHTMLRenderer(),
-  headerIds: false,
-  mangle: false
+  renderer: new GovukHTMLRenderer()
 })
 
 test('Renders blockquote', () => {
@@ -18,7 +16,7 @@ test('Renders blockquote', () => {
 test('Renders headings', () => {
   const result = marked('# Heading 1\n## Heading 2\n### Heading 3\n#### Heading 4')
 
-  assert.equal(result, '<h1 class="govuk-heading-l" id="heading-1">Heading 1</h1><h2 class="govuk-heading-m" id="heading-2">Heading 2</h2><h3 class="govuk-heading-s" id="heading-3">Heading 3</h3><h4 class="govuk-heading-s" id="heading-4">Heading 4</h4>')
+  assert.equal(result, '<h1 class="govuk-heading-l">Heading 1</h1><h2 class="govuk-heading-m">Heading 2</h2><h3 class="govuk-heading-s">Heading 3</h3><h4 class="govuk-heading-s">Heading 4</h4>')
 })
 
 test('Renders headings, using classes relative to given starting level', () => {
@@ -26,7 +24,7 @@ test('Renders headings, using classes relative to given starting level', () => {
 
   const result = marked('# Heading 1\n## Heading 2\n### Heading 3\n#### Heading 4')
 
-  assert.equal(result, '<h1 class="govuk-heading-xl" id="heading-1">Heading 1</h1><h2 class="govuk-heading-l" id="heading-2">Heading 2</h2><h3 class="govuk-heading-m" id="heading-3">Heading 3</h3><h4 class="govuk-heading-s" id="heading-4">Heading 4</h4>')
+  assert.equal(result, '<h1 class="govuk-heading-xl">Heading 1</h1><h2 class="govuk-heading-l">Heading 2</h2><h3 class="govuk-heading-m">Heading 3</h3><h4 class="govuk-heading-s">Heading 4</h4>')
 })
 
 test('Renders paragraph', () => {
@@ -69,7 +67,7 @@ test('Renders unordered list', () => {
 test('Renders task list', () => {
   const result = marked('* [ ] Item\n* [x] Item')
 
-  assert.equal(result, '<ul class="govuk-list govuk-list--bullet"><li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" disabled><span class="x-govuk-checkbox__pseudo"></span></span>Item</li>\n<li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" checked disabled><span class="x-govuk-checkbox__pseudo"></span></span>Item</li>\n</ul>\n')
+  assert.equal(result, '<ul class="govuk-list govuk-list--bullet"><li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" disabled><span class="x-govuk-checkbox__pseudo"></span></span> Item</li>\n<li><span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox" checked disabled><span class="x-govuk-checkbox__pseudo"></span></span> Item</li>\n</ul>\n')
 })
 
 test('Renders section break', () => {

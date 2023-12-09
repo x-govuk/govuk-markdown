@@ -15,7 +15,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
   }
 
   // Headings
-  heading (text, level, string, slugger) {
+  heading (text, level) {
     const modifiers = [
       'xl',
       'l',
@@ -29,8 +29,7 @@ module.exports = class GovukHTMLRenderer extends Renderer {
 
     const modifier = modifiers[modifierStartIndex + level - 1] || 's'
 
-    const id = slugger.slug(text)
-    return `<h${level} class="govuk-heading-${modifier}" id="${id}">${text}</h${level}>`
+    return `<h${level} class="govuk-heading-${modifier}">${text}</h${level}>`
   }
 
   // Paragraphs

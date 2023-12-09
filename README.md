@@ -98,7 +98,7 @@ marked('# Extra large heading')
 Will output:
 
 ```html
-<h1 class="govuk-heading-xl" id="extra-large-heading">Extra large heading</h1>
+<h1 class="govuk-heading-xl">Extra large heading</h1>
 ```
 
 ## Testing
