@@ -14,26 +14,20 @@ Node.js v18 or later.
 
 ## Usage
 
-Import `GovukHTMLRenderer` and set it as the `renderer` in marked’s options:
-
 ```js
 const { marked } = require('marked');
-const GovukHTMLRenderer = require('govuk-markdown')
+const govukMarkdown = require('govuk-markdown')
 
-marked.setOptions({
-  renderer: new GovukHTMLRenderer()
-})
+marked.use(govukMarkdown())
 ```
 
 If you are using [ES modules](https://nodejs.org/api/esm.html#introduction), import as follows:
 
 ```js
 import { marked } from 'marked'
-import GovukHTMLRenderer from 'govuk-markdown'
+import govukMarkdown from 'govuk-markdown'
 
-marked.setOptions({
-  renderer: new GovukHTMLRenderer()
-})
+marked.use(govukMarkdown())
 ```
 
 When you call `marked`, the generated HTML will include the classes from GOV.UK Frontend. For example:
@@ -87,10 +81,12 @@ In addition to [marked’s options](https://marked.js.org/using_advanced#options
 For example:
 
 ```js
-marked.setOptions({
-  renderer: new GovukHTMLRenderer(),
+const { marked } = require('marked');
+const { govukMarkdown } = require('govuk-markdown')
+
+marked.use(govukMarkdown({
   headingsStartWith: 'xl'
-})
+}))
 
 marked('# Extra large heading')
 ```

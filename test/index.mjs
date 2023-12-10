@@ -1,11 +1,9 @@
 import { strict as assert } from 'node:assert'
 import test from 'node:test'
 import { marked } from 'marked'
-import GovukHTMLRenderer from '../index.js'
+import govukMarkdown from '../index.js'
 
-marked.setOptions({
-  renderer: new GovukHTMLRenderer()
-})
+marked.use(govukMarkdown())
 
 test('Renders blockquote', () => {
   const result = marked('> Blockquote')
@@ -26,7 +24,7 @@ test('Renders heading with id', () => {
 })
 
 test('Renders headings, using classes relative to given starting level', () => {
-  marked.setOptions({ headingsStartWith: 'xl' })
+  marked.use(govukMarkdown({ headingsStartWith: 'xl' }))
 
   const result = marked('# Heading 1\n## Heading 2\n### Heading 3\n#### Heading 4')
 
