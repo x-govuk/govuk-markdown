@@ -23,7 +23,8 @@
     "url": "https://github.com/x-govuk/govuk-markdown.git"
   },
   "scripts": {
-    "lint": "prettier . --check && standard && stylelint 'x-govuk/**/*.scss'",
+    "prelint": "prettier . --check",
+    "lint": "eslint '**/*.js' && stylelint 'x-govuk/**/*.scss'",
     "test": "node --test",
     "coverage": "node --test --experimental-test-coverage",
     "release": "np"
@@ -36,9 +37,12 @@
     "marked": "^11.0.0"
   },
   "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-jsdoc": "^46.9.0",
     "np": "^9.2.0",
     "prettier": "^3.1.0",
-    "standard": "^17.0.0",
     "stylelint": "^15.0.0",
     "stylelint-config-gds": "^1.1.0"
   },
@@ -63,6 +67,16 @@
           "singleQuote": false
         }
       }
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:jsdoc/recommended-typescript-flavor",
+      "standard",
+      "prettier"
     ]
   },
   "stylelint": {
