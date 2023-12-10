@@ -16,7 +16,13 @@ test('Renders blockquote', () => {
 test('Renders headings', () => {
   const result = marked('# Heading 1\n## Heading 2\n### Heading 3\n#### Heading 4')
 
-  assert.equal(result, '<h1 class="govuk-heading-l">Heading 1</h1><h2 class="govuk-heading-m">Heading 2</h2><h3 class="govuk-heading-s">Heading 3</h3><h4 class="govuk-heading-s">Heading 4</h4>')
+  assert.equal(result, '<h1 class="govuk-heading-l" id="heading-1">Heading 1</h1><h2 class="govuk-heading-m" id="heading-2">Heading 2</h2><h3 class="govuk-heading-s" id="heading-3">Heading 3</h3><h4 class="govuk-heading-s" id="heading-4">Heading 4</h4>')
+})
+
+test('Renders heading with id', () => {
+  const result = marked('# Heading with *emphasis*')
+
+  assert.equal(result, '<h1 class="govuk-heading-l" id="heading-with-emphasis">Heading with <em>emphasis</em></h1>')
 })
 
 test('Renders headings, using classes relative to given starting level', () => {
@@ -24,7 +30,7 @@ test('Renders headings, using classes relative to given starting level', () => {
 
   const result = marked('# Heading 1\n## Heading 2\n### Heading 3\n#### Heading 4')
 
-  assert.equal(result, '<h1 class="govuk-heading-xl">Heading 1</h1><h2 class="govuk-heading-l">Heading 2</h2><h3 class="govuk-heading-m">Heading 3</h3><h4 class="govuk-heading-s">Heading 4</h4>')
+  assert.equal(result, '<h1 class="govuk-heading-xl" id="heading-1">Heading 1</h1><h2 class="govuk-heading-l" id="heading-2">Heading 2</h2><h3 class="govuk-heading-m" id="heading-3">Heading 3</h3><h4 class="govuk-heading-s" id="heading-4">Heading 4</h4>')
 })
 
 test('Renders paragraph', () => {

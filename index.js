@@ -15,21 +15,17 @@ module.exports = class GovukHTMLRenderer extends Renderer {
   }
 
   // Headings
-  heading (text, level) {
-    const modifiers = [
-      'xl',
-      'l',
-      'm',
-      's'
-    ]
+  heading (text, level, raw) {
+    const id = raw.toLowerCase().replace(/[^\w]+/g, '-')
 
     // Make modifiers relative to the starting heading level
+    const modifiers = ['xl', 'l', 'm', 's']
     const headingsStartWith = (modifiers.includes(this.options.headingsStartWith)) ? this.options.headingsStartWith : 'l'
     const modifierStartIndex = modifiers.indexOf(headingsStartWith)
 
     const modifier = modifiers[modifierStartIndex + level - 1] || 's'
 
-    return `<h${level} class="govuk-heading-${modifier}">${text}</h${level}>`
+    return `<h${level} class="govuk-heading-${modifier}" id="${id}">${text}</h${level}>`
   }
 
   // Paragraphs
