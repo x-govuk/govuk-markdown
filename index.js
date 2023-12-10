@@ -3,7 +3,6 @@ const highlightJs = require('highlight.js')
 /**
  * Add GOV.UK typography classes to blockquotes, headings, paragraphs, links,
  * lists, section breaks and tables.
- *
  * @param {object} [options] Options for the extension
  * @returns {object} A MarkedExtension to be passed to `marked.use()`
  */
