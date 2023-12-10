@@ -1,7 +1,7 @@
-import { strict as assert } from 'node:assert'
-import test from 'node:test'
-import { marked } from 'marked'
-import govukMarkdown from '../index.js'
+const { strict: assert } = require('node:assert')
+const test = require('node:test')
+const { marked } = require('marked')
+const govukMarkdown = require('../index.js')
 
 marked.use(govukMarkdown())
 
