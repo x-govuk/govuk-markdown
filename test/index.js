@@ -1,4 +1,4 @@
-const { strict: assert } = require('node:assert')
+const assert = require('node:assert/strict')
 const test = require('node:test')
 const { marked } = require('marked')
 const govukMarkdown = require('../index.js')
