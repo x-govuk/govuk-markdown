@@ -10,12 +10,12 @@ module.exports = function (options = {}) {
   return {
     renderer: {
       // Block quotes
-      blockquote (quote) {
+      blockquote(quote) {
         return `<blockquote class="govuk-inset-text govuk-!-margin-left-0">${quote}</blockquote>\n`
       },
 
       // Headings
-      heading (text, level, raw) {
+      heading(text, level, raw) {
         const id = raw.toLowerCase().replace(/[^\w]+/g, '-')
 
         // Make modifiers relative to the starting heading level
@@ -31,7 +31,7 @@ module.exports = function (options = {}) {
       },
 
       // Paragraphs
-      paragraph (string) {
+      paragraph(string) {
         // Don’t place figure (or figure within an anchor) within paragraph
         const FIGURE_RE = /(<a([^>]+)>)?<figure/
         if (FIGURE_RE.test(string)) {
@@ -42,7 +42,7 @@ module.exports = function (options = {}) {
       },
 
       // Links
-      link (href, title, text) {
+      link(href, title, text) {
         if (title) {
           return `<a class="govuk-link" href="${href}" title="${title}">${text}</a>`
         } else {
@@ -51,7 +51,7 @@ module.exports = function (options = {}) {
       },
 
       // Lists
-      list (body, ordered) {
+      list(body, ordered) {
         const element = ordered ? 'ol' : 'ul'
         const modifier = ordered ? 'number' : 'bullet'
 
@@ -59,25 +59,27 @@ module.exports = function (options = {}) {
       },
 
       // Checkbox
-      checkbox (checked) {
-        return `<span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox"${checked ? ' checked' : ''} disabled><span class="x-govuk-checkbox__pseudo"></span></span>`
+      checkbox(checked) {
+        return `<span class="x-govuk-checkbox"><input class="x-govuk-checkbox__input" type="checkbox"${
+          checked ? ' checked' : ''
+        } disabled><span class="x-govuk-checkbox__pseudo"></span></span>`
       },
 
       // Section break
-      hr () {
+      hr() {
         return '<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">\n'
       },
 
       // Tables
-      table (header, body) {
+      table(header, body) {
         return `<table class="govuk-table">\n<thead class="govuk-table__head">\n${header}</thead>\n<tbody class="govuk-table__body">${body}</tbody>\n</table>\n`
       },
 
-      tablerow (content) {
+      tablerow(content) {
         return `<tr class="govuk-table__row">\n${content}</tr>\n`
       },
 
-      tablecell (content, { header, align }) {
+      tablecell(content, { header, align }) {
         const element = header ? 'th' : 'td'
         const className = header ? 'govuk-table__header' : 'govuk-table__cell'
         const alignClass = align ? ` govuk-!-text-align-${align}` : ''
@@ -86,7 +88,7 @@ module.exports = function (options = {}) {
 
       // Block code
       // By not using marked’s `highlight` option, we can add a class to the container
-      code (string, language) {
+      code(string, language) {
         highlightJs.configure({ classPrefix: 'x-govuk-code__' })
 
         if (language) {
@@ -105,7 +107,7 @@ module.exports = function (options = {}) {
       },
 
       // Inline code
-      codespan (code) {
+      codespan(code) {
         return `<code class="x-govuk-code x-govuk-code--inline">${code}</code>`
       }
     }
