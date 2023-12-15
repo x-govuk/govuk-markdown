@@ -15,7 +15,7 @@ Node.js v18 or later.
 ## Usage
 
 ```js
-const { marked } = require('marked');
+const { marked } = require('marked')
 const govukMarkdown = require('govuk-markdown')
 
 marked.use(govukMarkdown())
@@ -49,7 +49,7 @@ Will output:
 Block code is highlighted using [highlight.js](https://highlightjs.org). For example:
 
 ````js
-marked('```js\nconsole.log(\'Hello, World!\')\n```')
+marked("```js\nconsole.log('Hello, World!')\n```")
 ````
 
 Will output:
@@ -81,7 +81,7 @@ In addition to [marked’s options](https://marked.js.org/using_advanced#options
 For example:
 
 ```js
-const { marked } = require('marked');
+const { marked } = require('marked')
 const { govukMarkdown } = require('govuk-markdown')
 
 marked.use(govukMarkdown({
