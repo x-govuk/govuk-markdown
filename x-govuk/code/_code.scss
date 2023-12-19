@@ -28,10 +28,10 @@ $x-govuk-code-color: #d13118;
 .x-govuk-code--block {
   @include govuk-responsive-margin(4, "bottom");
   background-color: govuk-colour("light-grey");
+  -webkit-font-smoothing: antialiased;
   overflow: auto;
   padding: govuk-spacing(4);
   scrollbar-color: $govuk-border-colour govuk-colour("light-grey");
-  -webkit-font-smoothing: antialiased;
 
   + .govuk-heading-l {
     padding-top: govuk-spacing(4);

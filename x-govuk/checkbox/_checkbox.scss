@@ -11,8 +11,8 @@ $pseudo-offset: $touch-target-size - $input-offset;
 }
 
 .x-govuk-checkbox__input {
-  left: $input-offset * -1;
   height: $touch-target-size;
+  left: $input-offset * -1;
   margin: 0;
   opacity: 0;
   position: absolute;
@@ -27,28 +27,28 @@ $pseudo-offset: $touch-target-size - $input-offset;
 
 // [ ] Check box
 .x-govuk-checkbox__pseudo::before {
+  background: transparent;
+  border: $govuk-border-width-form-element solid currentcolor;
   box-sizing: border-box;
   content: "";
+  height: $checkbox-size;
+  left: 0;
+  opacity: 0.5;
   position: absolute;
   top: $input-offset - $govuk-border-width-form-element;
-  left: 0;
   width: $checkbox-size;
-  height: $checkbox-size;
-  border: $govuk-border-width-form-element solid currentcolor;
-  background: transparent;
-  opacity: 0.5;
 }
 
 // ✔ Check mark
 //
 // Box with a border on the left and bottom side (└──), rotated 45 degrees
 .x-govuk-checkbox__pseudo::after {
-  content: "";
   background: transparent;
   border: solid;
   border-top-color: transparent;
   border-width: 0 0 3px 3px;
   box-sizing: border-box;
+  content: "";
   height: 6.5px;
   left: 6px;
   opacity: 0;
