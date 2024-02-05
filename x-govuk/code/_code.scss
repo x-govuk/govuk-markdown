@@ -25,7 +25,7 @@ $x-govuk-code-color: #d13118;
 }
 
 .x-govuk-code--block {
-  @include govuk-typography-responsive(16, $override-line-height: 1.4);
+  @include govuk-font(16, $line-height: 1.4);
   @include govuk-responsive-margin(4, "bottom");
   background-color: govuk-colour("light-grey");
   overflow: auto;
