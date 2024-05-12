@@ -14,7 +14,9 @@
   },
   "license": "MIT",
   "files": [
-    "x-govuk"
+    "x-govuk",
+    "nowprototypeit-integration",
+    "now-prototype-it.config.json"
   ],
   "main": "index.js",
   "sass": "x-govuk/all.scss",

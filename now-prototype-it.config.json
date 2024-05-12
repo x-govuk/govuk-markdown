@@ -1,0 +1,28 @@
+{
+  "version-2024-03": {
+    "meta": {
+      "description": "Convert Markdown into GOV.UK Frontend-compliant HTML. It’s an extension to the marked renderer and is inspired by its Ruby equivalent gem govuk_markdown."
+    },
+    "pluginDependencies": [
+      "@nowprototypeit/govuk-frontend-adaptor"
+    ],
+    "markdownRenderers": [
+      {
+        "path": "/nowprototypeit-integration/renderer.js",
+        "name": "govuk-markdown"
+      }
+    ],
+    "templates": [
+      {
+        "path": "/nowprototypeit-integration/templates/govuk-content-page.md",
+        "name": "GOV.UK Content Page",
+        "type": "markdown"
+      },
+      {
+        "path": "/nowprototypeit-integration/templates/govuk-accordion.md",
+        "name": "GOV.UK Accordion Example",
+        "type": "markdown"
+      }
+    ]
+  }
+}
