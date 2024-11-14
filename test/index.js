@@ -1,6 +1,8 @@
 const assert = require('node:assert/strict')
 const test = require('node:test')
+
 const { marked } = require('marked')
+
 const govukMarkdown = require('../index.js')
 
 marked.use(govukMarkdown())

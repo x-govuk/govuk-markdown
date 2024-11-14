@@ -2,8 +2,9 @@ const highlightJs = require('highlight.js')
 
 /**
  * Add GOV.UK typography classes to blockquotes, headings, paragraphs, links,
- * lists, section breaks and tables.
- * @param {object} [options] Options for the extension
+ * lists, section breaks and tables
+ *
+ * @param {object} [options] - Options for the extension
  * @returns {object} A MarkedExtension to be passed to `marked.use()`
  */
 module.exports = function (options = {}) {
@@ -45,9 +46,9 @@ module.exports = function (options = {}) {
         const FIGURE_RE = /(<a([^>]+)>)?<figure/
         if (FIGURE_RE.test(text)) {
           return text
-        } else {
-          return `<p class="govuk-body">${text}</p>\n`
         }
+
+        return `<p class="govuk-body">${text}</p>\n`
       },
 
       // Links
@@ -56,9 +57,9 @@ module.exports = function (options = {}) {
 
         if (title) {
           return `<a class="govuk-link" href="${href}" title="${title}">${text}</a>`
-        } else {
-          return `<a class="govuk-link" href="${href}">${text}</a>`
         }
+
+        return `<a class="govuk-link" href="${href}">${text}</a>`
       },
 
       // Lists
@@ -142,10 +143,10 @@ module.exports = function (options = {}) {
             code = highlightJs.highlightAuto(text).value
           }
           return `<pre class="x-govuk-code x-govuk-code--block x-govuk-code__language--${language}" tabindex="0"><code>${code}</code></pre>\n`
-        } else {
-          // No language found, so render as plain text
-          return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0">${text}</pre>\n`
         }
+
+        // No language found, so render as plain text
+        return `<pre class="x-govuk-code x-govuk-code--block" tabindex="0">${text}</pre>\n`
       },
 
       // Inline code
